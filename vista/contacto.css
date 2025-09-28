@@ -1,0 +1,64 @@
+/* Estilos generales para el body */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+/* Estilos para el header */
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrar horizontalmente */
+    justify-content: center; /* Centrar verticalmente */
+    height: 100vh; /* Ocupa el 100% de la altura de la vista */
+    background-color: #333; /* Fondo oscuro */
+    color: white;
+    text-align: center; /* Alinear el texto en el centro */
+    padding: 20px 0; /* Espaciado arriba y abajo */
+    box-sizing: border-box;
+}
+
+/* Estilos para el título dentro del header */
+header h1 {
+    font-size: 48px;
+    margin: 0;
+    padding-bottom: 20px;
+}
+
+/* Estilos para la barra de navegación */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0; /* Espacio arriba y abajo de la lista */
+    display: flex;
+    justify-content: center; /* Centrar horizontalmente los enlaces */
+    gap: 20px; /* Espacio entre los enlaces */
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    padding: 10px 20px;
+    background-color: #444;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #555;
+    color: #f0f0f0;
+}
+
+/* Estilo para el fondo si tienes alguna imagen o color */
+.fondo {
+    background-image: url('imagenes/images2.jpeg'); /* Cambia esto si tienes una imagen */
+    background-size: cover;
+    height: 100vh;
+}

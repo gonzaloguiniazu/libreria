@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Usuario - Tienda Online</title>
+    <link rel="stylesheet" href="registro.css"> <!-- Enlace al archivo de estilos CSS -->
+    <script src="../controlador/registro.js" defer></script> <!-- Enlace al archivo JavaScript -->
+
+    <link rel="icon" href="../vista/imagenes/favicon-32x32.png" sizes="32x32" type="image/png">
+</head>
+<body>
+    
+    <header>
+        <h1>Registro de Usuario</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="iniciar_sesion.html">Login</a></li>
+                <li><a href="registro.html">Registrarse</a></li>
+                <li><a href="Contacto.html">Contacto</a></li>
+                
+                
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Crea tu cuenta</h2>
+        <h2>para acceder a compras online</h2>
+
+        <form action="../modelo/registro.php" method="post">
+            <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+            </div>
+        
+            <div class="form-group">
+                <label for="apellido">Apellido:</label>
+                <input type="text" id="apellido" name="apellido" required>
+            </div>
+        
+            <div class="form-group">
+                <label for="domicilio">Domicilio:</label>
+                <input type="text" id="domicilio" name="domicilio" required>
+            </div>
+        
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+        
+            <div class="form-group">
+                <label for="contrasena">Contraseña:</label> 
+                <input type="password" id="contrasena" name="contrasena" required>
+            </div>
+        
+            <div class="form-group">
+                <button type="submit">Registrarse</button>
+            </div>
+        </form>
+        
+        <h2>Registro de Usuario</h2>
+
+        <script src="../controlador/registro.js">
+            // Mostrar mensaje si hay uno en la URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const message = urlParams.get('message');
+            if (message) {
+                alert(message); // Muestra el mensaje de registro exitoso
+            }
+        </script>
+    </main>
+    
+
+    <footer>
+        <p>&copy; 2024 Tienda Online. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>

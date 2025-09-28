@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../vista/imagenes/favicon-32x32.png" sizes="32x32" type="image/png">
+    <title>Tienda Online</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4; /* Fondo claro */
+        }
+        header {
+            background-color: #333; /* Fondo oscuro para el header */
+            color: white;
+            text-align: center;
+            padding: 20px 0; /* Espaciado arriba y abajo */
+        }
+        header h1 {
+            margin: 0;
+            font-size: 36px; /* Tamaño del título */
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 10px 0; /* Reduce el margen superior e inferior */
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        nav ul li {
+            display: inline;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            padding: 4px 10px;
+            background-color: #444;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        nav ul li a:hover {
+            background-color: #555;
+            color: #f0f0f0;
+        }
+        .map-container {
+            width: 100%;
+            height: 400px;
+            margin: 20px 0; /* Espacio arriba y abajo del mapa */
+        }
+        .contact-info {
+            margin: 20px auto;
+            max-width: 800px; /* Limitar el ancho para que no se extienda demasiado */
+            padding: 20px;
+            background-color: #fff; /* Fondo blanco para la sección de contacto */
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Sombra suave */
+        }
+        .contact-info h2 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>ESTACIÓN DEL ARTE</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="iniciar_sesion.html">Login</a></li>
+                <li><a href="registro.html">Registrarse</a></li>
+                <li><a href="Contacto.html">Contacto</a></li>
+                
+                
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Aquí va el mapa de Google -->
+    <div class="map-container">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9295.00049089172!2d-58.70763450447296!3d-34.54649221533267!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcbd0934ed48a9%3A0xe7d9102acd24c71f!2sAv.%20Pte.%20J.%20D.%20Per%C3%B3n%201111%2C%20B1663GHA%20San%20Miguel%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1727811610829!5m2!1ses-419!2sar" 
+            width="100%" 
+            height="400" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+
+    <!-- Información de contacto -->
+    <div class="contact-info">
+        <h2>Redes Sociales</h2>
+        <p>Facebook: <a href="https://www.facebook.com/estacion_del_arte" target="_blank">facebook.com/estaciondel_arte</a></p>
+        <p>Instagram: <a href="https://www.instagram.com/estaciondel_arte" target="_blank">instagram.com/estaciondel_arte</a></p>
+        <p>Web: <a href="https://www.estaciondel_arte.com" target="_blank">www.estaciondel_arte.com</a></p>
+
+        <h2>Donde Estamos</h2>
+        <p>Dirección: Av. Pte. Perón 1111, San Miguel, Buenos Aires, Argentina</p>
+        <h2>Comunicate con Nosotros</h2>
+        <p>Teléfono: +054 11 7456-7890</p>
+        <p>Whatsapp: +054 11 2755-4663</p>
+    </div>
+</body>
+</html>
