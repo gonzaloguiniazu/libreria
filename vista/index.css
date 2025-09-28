@@ -322,7 +322,7 @@ h2 {
 .slider {
     width: 75vw;
     height: auto;
-    margin: auto;
+    margin: 30px auto 0 auto;
     overflow: hidden;
 }
 

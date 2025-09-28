@@ -4,87 +4,85 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Poppins", sans-serif;
+  background-image: url('imagenes/13.jpg'); 
+  background-size: cover;
+  background-position: left;
+  background-repeat: no-repeat;
 }
 
-body {
-  display: flex;
-  flex-direction: column; /* Permitir que los elementos del cuerpo se apilen en columna */
-  height: 100vh;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  background: #05445E;
-}
-/* Estilos para el header */
+/* Barra de navegación */
 header {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centrar horizontalmente */
-    justify-content: center; /* Centrar verticalmente */
-    height: 100vh; /* Ocupa el 100% de la altura de la vista */
-    background-color: #333333; /* Fondo oscuro */
-    color: white;
-    text-align: center; /* Alinear el texto en el centro */
-    padding: 20px 0; /* Espaciado arriba y abajo */
-    box-sizing: border-box;
+  width: 100%;
 }
 
-/* Estilos para el título dentro del header */
-header h1 {
-    font-size: 48px;
-    margin: 0;
-    padding-bottom: 20px;
+.barra {
+  background-color: #756f6f; 
+  width: 100%;
+  height: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
 }
 
-/* Estilos para la barra de navegación */
 nav ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0 20px; /* Espacio arriba y abajo de la lista */
-    display: flex;
-    justify-content: center; /* Centrar horizontalmente los enlaces */
-    gap: 1px; /* Espacio entre los enlaces */
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
 }
 
 nav ul li {
-    display: inline;
+  display: inline;
 }
 
 nav ul li a {
-    text-decoration: none;
-    color: white;
-    font-size: 18px;
-    padding: 10px 20px;
-    background-color: #444;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, color 0.3s ease;
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  padding: 10px 20px;
+  background-color: #444;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 nav ul li a:hover {
-    background-color: #555;
-    color: #f0f0f0;
+  background-color: #555;
+  color: #f0f0f0;
 }
 
-h1 {
-  font-size:25px;
-  color: hsl(256, 60%, 52%);
-  margin-bottom: 20px; /* Espacio entre el título y el formulario */
-}
-
-.login-form {
-  background: rgb(203, 235, 205); /* Cambia el color de fondo del recuadro */
-  padding: 40px 30px;
-  border-radius: 10px; /* Redondea las esquinas del recuadro */
-  box-shadow: 0 4px 15px rgba(122, 120, 120, 0.2); /* Añade una sombra suave al recuadro */
-  width: 100%;
-  max-width: 400px; /* Establece el ancho máximo */
-  border: 2px solid #12749e; /* Cambia el color del borde del recuadro */
+/* Contenedor para centrar el login */
+.contenedor-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;         
+  padding-top: 100px;    /* espacio para que no tape la barra */
   box-sizing: border-box;
+}
+
+/* Estilos del formulario de login */
+.login-form {
+  background: rgb(203, 235, 205);
+  padding: 40px 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(122, 120, 120, 0.2);
+  width: 100%;
+  max-width: 400px;
+  border: 2px solid #12749e;
+  box-sizing: border-box;
+  text-align: center;
 }
 
 .text {
   font-size: 30px;
-  color:black;
+  color: black;
   font-weight: 600;
   letter-spacing: 2px;
 }
@@ -170,55 +168,4 @@ button:hover {
 .link a:hover {
   text-decoration: underline;
 }
-header {
-  background-color: transparent;
-  color: #fff;
-  padding: 1rem 0;
-  text-align: center;
-  margin: 0;
-  padding: 0;
-}
 
-header h1 {
-  font-size: 4rem;
-  margin-bottom: 0.5rem;
-}
-
-header nav ul {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-}
-
-header nav ul li {
-  margin: 0 1rem; /*espacio entre palabras horizontal*/
-}
-
-header nav ul li a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-header nav ul li a:hover {
-  text-decoration: underline;
-}
-body {
-  background-image: url('imagenes/13.jpg'); 
-  background-size: cover;
-  background-position: left;
-  background-repeat: no-repeat;
-}
-.barra {
-  background-color: #756f6f; /* Color gris claro */
-  width: 100%; /* Ocupa todo el ancho */
-  height: 90px; /* Altura ajustable */
-  display: flex;
-  justify-content: center; /* Centrar horizontalmente */
-  align-items: center; /* Centrar verticalmente */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
-  position: absolute; /* Posición absoluta para mover hacia arriba */
-  top: 0; /* Colocar en la parte superior */
-  left: 0; /* Alinear a la izquierda */
-  z-index: 10; /* Asegura que esté por encima de otros elementos */
-}

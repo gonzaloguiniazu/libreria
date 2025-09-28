@@ -6,31 +6,9 @@
   <title>Login</title>
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css'>
   <link rel="stylesheet" href="iniciar_sesion.css">
-
   <link rel="icon" href="../vista/imagenes/favicon-32x32.png" sizes="32x32" type="image/png">
-
-
 </head>
-<script>
-        function login() {
-            // Supongamos que el usuario ingresa con el nombre y contraseña correctos
-            let username = document.getElementById("username").value;
-            let password = document.getElementById("password").value;
-
-            // Verificación básica (solo un ejemplo, no es seguro)
-            if (username === "usuario" && password === "1234") {
-                // Guardamos que el usuario ha iniciado sesión
-                sessionStorage.setItem("loggedin", "true");
-                alert("Inicio de sesión exitoso");
-                window.location.href = "index.html"; // Redirige a la página principal
-            } else {
-                alert("Usuario o contraseña incorrecta");
-            }
-        }
-    </script>
-
 <body>
-  
 <header>
   <div class="barra">
   <nav>
@@ -38,40 +16,30 @@
       <li><a href="index.html">Inicio</a></li>
       <li><a href="iniciar_sesion.html">Login</a></li>
       <li><a href="registro.html">Registrarse</a></li>
-      <li><a href="Contacto.html">Contacto</a></li>
-      
-      
+      <li><a href="Contacto.html">Contacto</a></li>  
     </ul>
   </nav>
    </div>
 </header>
 
-<div class="login-form">
-  <div class="text">
-    Ingresar usuario
+<div class="contenedor-login">
+  <div class="login-form">
+    <div class="text">Ingresar usuario</div>
+    <form action="../modelo/iniciar_sesion.php" method="POST">
+      <div class="field">
+        <div class="fas fa-envelope"></div>
+        <input type="text" name="email" placeholder="Email" required>
+      </div>
+      <div class="field">
+        <div class="fas fa-lock"></div>
+        <input type="password" name="contrasena" placeholder="Contraseña" required>
+      </div>
+      <button type="submit">Iniciar Sesión</button>
+      <div class="link">
+        No tengo usuario <a href="registro.html">, quiero registrarme</a>
+      </div>
+    </form>
   </div>
-
-  <!-- Formulario para iniciar sesión -->
-  <form action="../modelo/iniciar_sesion.php" method="POST">
-    <div class="field">
-      <div class="fas fa-envelope"></div>
-      <input type="text" name="email" placeholder="Email" required>
-    </div>
-    <div class="field">
-      <div class="fas fa-lock"></div>
-      <input type="password" name="contrasena" placeholder="Contrasena" required>
-    </div>
-    <button type="submit">Iniciar Sesión</button>
-    <div class="link">
-      No tengo usuario
-      <a href="registro.html">, quiero registrarme</a>
-    </div>
-  </form>
-
- 
-
-
 </div>
-
 </body>
 </html>

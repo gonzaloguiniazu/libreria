@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const form = document.querySelector('form');
+    const form = document.getElementById('form-registro');
+
   
     form.addEventListener('submit', function(event) {
         const confirmMessage = confirm("Estás a punto de darte de alta como usuario. ¿Deseas continuar?");
@@ -14,7 +15,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const urlParams = new URLSearchParams(window.location.search);
     const message = urlParams.get('message');
     if (message) {
-        alert(message); // Muestra el mensaje de registro exitoso
+        mensajeDiv.textContent = message;
+        mensajeDiv.style.color = message.toLowerCase().includes("error") ? "red" : "green";
+        mensajeDiv.style.fontWeight = "bold";
+        mensajeDiv.style.margin = "10px 0";
     }
   });
   
