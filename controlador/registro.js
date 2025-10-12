@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('form-registro');
+    const mensajeDiv = document.getElementById('mensaje');
 
   
     form.addEventListener('submit', function(event) {
@@ -15,10 +16,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const urlParams = new URLSearchParams(window.location.search);
     const message = urlParams.get('message');
     if (message) {
+        if (message.toLowerCase().includes("error")) {
         mensajeDiv.textContent = message;
-        mensajeDiv.style.color = message.toLowerCase().includes("error") ? "red" : "green";
-        mensajeDiv.style.fontWeight = "bold";
-        mensajeDiv.style.margin = "10px 0";
+        mensajeDiv.className = "error";
+        } else {
+            mensajeDiv.textContent = message;
+            mensajeDiv.className = "success";
+        }
     }
   });
   

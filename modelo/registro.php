@@ -1,4 +1,3 @@
-
 <?php
 // registro.php
 include('conexion.php'); 
