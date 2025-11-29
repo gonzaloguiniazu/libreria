@@ -2,7 +2,6 @@
 session_start();
 include('conexion.php');
 
-
 $conn = conectarDB();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -21,37 +20,43 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Verifica si la contraseña es correcta
         if (password_verify($password, $user['contrasena'])) {
-            // La contraseña es correcta, inicia la sesión
-            $_SESSION['id'] = $user['id']; // Guarda el ID del usuario en la sesión
+            // ✅ Guardar datos del cliente en la sesión
+            $_SESSION['id_cliente'] = $user['id_cliente'];
+            $_SESSION['nombre'] = $user['nombre'];
+            $_SESSION['apellido'] = $user['apellido'];
+            $_SESSION['email'] = $user['email'];
+            $_SESSION['domicilio'] = $user['domicilio'];
 
+            // Verificar si es administrador
             if ($user['email'] === 'admin@admin') {
                 echo "<script>
-                alert('Bienvenido, " . $user['nombre'] . "'); // Usa el nombre del usuario
-                window.location.href = 'crud.php'; // Redirige a la página del crud
-              </script>";
+                    alert('Bienvenido Administrador, " . addslashes($user['nombre']) . "');
+                    window.location.href = 'crud.php';
+                  </script>";
             } else {
-                // Mensaje de bienvenida con JavaScript
+                // ✅ Redirigir a la página DINÁMICA de productos
                 echo "<script>
-                alert('Bienvenido, " . $user['nombre'] . "'); // Usa el nombre del usuario
-                window.location.href = 'productos.php'; // Redirige a la página de productos
-              </script>";
+                    alert('Bienvenido, " . addslashes($user['nombre']) . "');
+                    window.location.href = 'productos.php';
+                  </script>";
             }
             exit();
         } else {
-            // La contraseña es incorrecta
+            // Contraseña incorrecta
             echo "<script>
                     alert('Contraseña incorrecta. Intenta de nuevo.');
-                    window.location.href = '../vista/iniciar_sesion.html'; // Regresa a la página de inicio de sesión
+                    window.location.href = '../vista/iniciar_sesion.html';
                   </script>";
         }
     } else {
-        // El usuario no existe
+        // Usuario no existe
         echo "<script>
                 alert('Usuario no registrado. Por favor, regístrate primero.');
-                window.location.href = '../vista/registro.html'; // Regresa a la página de inicio de sesión
+                window.location.href = '../vista/registro.html';
               </script>";
     }
 }
 
 // Cierra la conexión
 $conn->close();
+?>

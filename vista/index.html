@@ -9,22 +9,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
-    <link rel="icon" href="../vista/imagenes/favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="imagenes/favicon-32x32.png" sizes="32x32" type="image/png">
 </head>
-<script>
-    // Función que verifica si el usuario ha iniciado sesión
-    function checkLogin() {
-        let loggedIn = sessionStorage.getItem("loggedin");
-        if (loggedIn !== "true") {
-            // Si no ha iniciado sesión, mostramos un mensaje y prevenimos el acceso a productos
-            alert("Debes iniciar sesión para acceder a la página de productos y poder comprar.");
-            return false;
-        }
-        return true;
-    }
-</script>
 <body>
- <div class="fondo"></div>
+    <div class="fondo"></div>
     <header>
         <h1>ESTACION DEL ARTE</h1>
         <nav>
@@ -33,12 +21,11 @@
                 <li><a href="iniciar_sesion.html">Login</a></li>
                 <li><a href="registro.html">Registrarse</a></li>
                 <li><a href="Contacto.html">Contacto</a></li>
-                <li><a href="productos.html" onclick="return checkLogin()">Productos</a></li>
-              
+                <li><a href="#" onclick="verificarSesion(); return false;">Productos</a></li>
             </ul>
-            <!-- Botón de Compra Online en el menú con verificación de login -->
+            <!-- Botón de Compra Online en el menú -->
             <div class="compra-online">
-                <a href="productos.html" onclick="return checkLogin()">
+                <a href="#" onclick="verificarSesion(); return false;">
                     <img src="imagenes/carrito2.png" alt="Carrito" class="carrito-icono">
                     COMPRA ONLINE
                 </a>
@@ -48,124 +35,83 @@
 
     <div class="slider">
         <div class="slide-track">
-            <div class="slide">
-                <img src="imagenes/mercadopago.png" alt="">
-            </div>
-            <div class="slide">
-                <img src="imagenes/cuenta.png" alt="">
-            </div>
-            <div class="slide">
-                <img src="imagenes/parker2.png" alt="">
-            </div>
-            <div class="slide">
-                <img src="imagenes/paper.png" alt="">
-            </div>
-            <div class="slide">
-                <img src="imagenes/sharpie.png" alt="">
-            </div>
-            <div class="slide">
-                <img src="imagenes/pilot.png" alt="">
-            </div>
-            <div class="slide">
-                <img src="imagenes/pelikan1.png" alt="">
-            </div>
-            <div class="slide">
-                <img src="imagenes/descarga.png" alt="">
-            </div>
-            <div class="slide">
-                <img src="imagenes/filgo.png" alt="">
-            </div>
-            <div class="slide">
-                <img src="imagenes/mercadopago.png" alt="">
-            </div>
-            <div class="slide">
-                <img src="imagenes/parker2.png" alt="">
-            </div>
-            <div class="slide">
-                <img src="imagenes/paper.png" alt="">
-            </div>
-            <div class="slide">
-                <img src="imagenes/sharpie.png" alt="">
-            </div>
-            <div class="slide">
-                <img src="imagenes/pilot.png" alt="">
-            </div>
-            <div class="slide">
-                <img src="imagenes/pilot.png" alt="">
-            </div>
-            <div class="slide">
-                <img src="imagenes/filgo.png" alt="">
-            
-            </div>
+            <div class="slide"><img src="imagenes/mercadopago.png" alt=""></div>
+            <div class="slide"><img src="imagenes/cuenta.png" alt=""></div>
+            <div class="slide"><img src="imagenes/parker2.png" alt=""></div>
+            <div class="slide"><img src="imagenes/paper.png" alt=""></div>
+            <div class="slide"><img src="imagenes/sharpie.png" alt=""></div>
+            <div class="slide"><img src="imagenes/pilot.png" alt=""></div>
+            <div class="slide"><img src="imagenes/pelikan1.png" alt=""></div>
+            <div class="slide"><img src="imagenes/descarga.png" alt=""></div>
+            <div class="slide"><img src="imagenes/filgo.png" alt=""></div>
+            <div class="slide"><img src="imagenes/mercadopago.png" alt=""></div>
+            <div class="slide"><img src="imagenes/parker2.png" alt=""></div>
+            <div class="slide"><img src="imagenes/paper.png" alt=""></div>
+            <div class="slide"><img src="imagenes/sharpie.png" alt=""></div>
+            <div class="slide"><img src="imagenes/pilot.png" alt=""></div>
+            <div class="slide"><img src="imagenes/filgo.png" alt=""></div>
         </div>
     </div>
 
     <main>
         <center>
-            <h3>Accedé a comprar en nuestra tienda online, regístrate, loguéate y míra nuestro amplio catálogo.</h3>
+            <h3>Accedé a comprar en nuestra tienda online, regístrate, loguéate y mirá nuestro amplio catálogo.</h3>
         </center>
         <center>
             <h3>Compra con la tranquilidad desde tu hogar, nosotros te lo llevamos.</h3>
         </center>
-
-       
     </main>
 
     <footer>
         <div class="features-container">
             <div class="feature">
-                <img src="imagenes/asesoramiento1.png" alt="asesor" style="width: 550px; height: 450px; background-color: transparent;"> <!-- icono asesoramiento -->
+                <img src="imagenes/asesoramiento1.png" alt="asesor" style="width: 550px; height: 450px; background-color: transparent;">
                 <h3><p>Te Brindamos el Mejor Asesoramiento</p></h3>
                 <h3><p>Vos tenés muchas preguntas, nosotros te damos todas las respuestas</p></h3>
                 <h3><p>Contamos con un equipo de asesores con más de 30 años de experiencia en el rubro.</p></h3>
-                <h3></h3>
             </div>
         </div>
-    
 
-    <!-- Contenedor de los iconos y leyendas -->
-    <div class="features-container">
-        <div class="feature">
-            <img src="imagenes/camioncito.png" alt="Icono camion"> <!-- Icono de camión -->
-            <p>Envíos sin Cargo</p>
+        <!-- Contenedor de los iconos y leyendas -->
+        <div class="features-container">
+            <div class="feature">
+                <img src="imagenes/camioncito.png" alt="Icono camion">
+                <p>Envíos sin Cargo</p>
+            </div>
+            <div class="feature">
+                <img src="imagenes/articulos2.1.png" alt="Articulos">
+                <p>Todas las Marcas</p>
+            </div>
+            <div class="feature">
+                <img src="imagenes/lazocalidad2.1.png" alt="Garantia">
+                <p>Calidad Garantizada</p>
+            </div>
         </div>
-        <div class="feature">
-            <img src="imagenes/articulos2.1.png" alt="Articulos"> <!-- Icono de pinceles -->
-            <p>Todas las Marcas</p>
-        </div>
-        <div class="feature">
-            <img src="imagenes/lazocalidad2.1.png" alt="Garantia"> <!-- Icono de calidad -->
-            <p>Calidad Garantizada</p>
-        </div>
-    </div>
-    
 
-    <p>&copy; 2024 Tienda Online. Todos los derechos reservados.</p>
-</footer>
-   
+        <p>&copy; 2024 Tienda Online. Todos los derechos reservados.</p>
+    </footer>
+
     <script>
-        let index = 0;
-
-        function moverCarrusel(direccion) {
-            const carrusel = document.getElementById('carrusel');
-            const totalCarteles = carrusel.children.length;
-
-            index += direccion;
-
-            // Asegurarse de que el índice esté en los límites
-            if (index < 0) {
-                index = totalCarteles - 1;
-            }
-            if (index >= totalCarteles) {
-                index = 0;
-            }
-
-            // Mover el carrusel
-            const desplazamiento = -index * 100;
-            carrusel.style.transform = `translateX(${desplazamiento}%)`;
+        function verificarSesion() {
+            // Hacer una petición AJAX para verificar si hay sesión activa
+            fetch('../modelo/verificar_sesion.php')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.sesion_activa) {
+                        // Si hay sesión, redirigir a productos
+                        window.location.href = '../modelo/productos.php';
+                    } else {
+                        // Si no hay sesión, mostrar mensaje y redirigir a login
+                        alert('Debes iniciar sesión para acceder a la página de productos.');
+                        window.location.href = 'iniciar_sesion.html';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Debes iniciar sesión para acceder a la página de productos.');
+                    window.location.href = 'iniciar_sesion.html';
+                });
         }
     </script>
 </body>
 </html>
-
-
