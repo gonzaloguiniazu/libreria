@@ -37,7 +37,7 @@
     <header>
          <nav class="navbar navbar-expand-lg bg-dark navbar-dark w-100">
             <div class="container-fluid">
-                <a class="navbar-brand" href="../vista/index.html">Salir y volver a la libreria</a>
+                <a class="navbar-brand" href="cerrar_sesion.php">Cerrar Sesion</a>
             </div>
         </nav>
         <h1> Altas, Bajas y Modificaciones de Productos</h1>

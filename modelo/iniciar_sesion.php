@@ -30,13 +30,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Verificar si es administrador
             if ($user['email'] === 'admin@admin') {
                 echo "<script>
-                    alert('Bienvenido Administrador, " . addslashes($user['nombre']) . "');
+                    
                     window.location.href = 'crud.php';
                   </script>";
             } else {
                 // ✅ Redirigir a la página DINÁMICA de productos
                 echo "<script>
-                    alert('Bienvenido, " . addslashes($user['nombre']) . "');
+                    
                     window.location.href = 'productos.php';
                   </script>";
             }

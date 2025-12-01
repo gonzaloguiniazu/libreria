@@ -35,36 +35,101 @@ if (!$resultado) {
     <title>Productos - Tienda Online</title>
     
     <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
         body {
-            background-image: url('../vista/imagenes/descarga10.jpeg');
+            background-image: url('../vista/imagenes/fondo_crud.png');
             background-size: cover;
             background-position: center;
+            background-attachment: fixed;
+        }
+        
+        header {
+            background-color: #333;
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        header h1 {
+            text-align: center;
+            margin: 0;
+            font-size: 2.5rem;
+            font-family: "Dancing Script", cursive;
         }
         
         .user-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             background-color: rgba(255, 255, 255, 0.9);
-            padding: 10px 20px;
-            margin: 10px 0;
-            border-radius: 5px;
-            text-align: right;
+            padding: 15px 30px;
+            margin: 15px 20px 0 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         
-        .user-info strong {
+        .user-welcome {
+            font-size: 1.1rem;
             color: #333;
+            font-weight: bold;
         }
         
-        .logout-btn {
-            background-color: #dc3545;
-            color: white;
-            padding: 8px 15px;
+        .user-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .btn-action {
+            padding: 10px 20px;
             text-decoration: none;
             border-radius: 5px;
-            margin-left: 15px;
-            transition: background-color 0.3s;
+            font-weight: 500;
+            transition: all 0.3s;
+            display: inline-block;
         }
         
-        .logout-btn:hover {
+        .btn-compras {
+            background-color: #28a745;
+            color: white;
+        }
+        
+        .btn-compras:hover {
+            background-color: #218838;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        .btn-logout {
+            background-color: #dc3545;
+            color: white;
+        }
+        
+        .btn-logout:hover {
             background-color: #c82333;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        section.contenedor {
+            flex: 1;
+        }
+        
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: auto;
+            width: 100%;
         }
     </style>
 </head>
@@ -74,16 +139,19 @@ if (!$resultado) {
         
         <!-- Información del usuario -->
         <div class="user-info">
-            <strong>Bienvenido: <?php echo htmlspecialchars($_SESSION['nombre'] . ' ' . $_SESSION['apellido']); ?></strong>
-            <a href="cerrar_sesion.php" class="logout-btn">Cerrar Sesión</a>
+            <div class="user-welcome">
+                <i class="fas fa-user-circle"></i>
+                Bienvenido: <?php echo htmlspecialchars($_SESSION['nombre'] . ' ' . $_SESSION['apellido']); ?>
+            </div>
+            <div class="user-buttons">
+                <a href="mis_compras.php" class="btn-action btn-compras">
+                    <i class="fas fa-shopping-bag"></i> Mis Compras
+                </a>
+                <a href="cerrar_sesion.php" class="btn-action btn-logout">
+                    <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+                </a>
+            </div>
         </div>
-        
-        <nav>
-            <ul>
-                <li><a href="../vista/index.html">Inicio</a></li>
-                <li><a href="../vista/Contacto.html">Contacto</a></li>
-            </ul>
-        </nav>
     </header>
     
     <section class="contenedor">
@@ -124,17 +192,17 @@ if (!$resultado) {
                 <span class="precio-item">$<?php echo $precio_formateado; ?></span>
                 
                 <?php if ($sin_stock): ?>
-                    <button class="boton-item" disabled style="background-color: #ccc; cursor: not-allowed;">
+                    <button class="boton-item" disabled style="background-color: #ccc; cursor: not-allowed;" data-id-producto="<?php echo $producto['id_producto']; ?>">
                         Sin Stock
                     </button>
-                    <small style="color: red; display: block; margin-top: 5px;">
+                    <small class="stock-info" style="color: red; display: block; margin-top: 5px;">
                         Stock no disponible
                     </small>
                 <?php else: ?>
                     <button class="boton-item" data-id-producto="<?php echo $producto['id_producto']; ?>">
                         Agregar al Carrito
                     </button>
-                    <small style="color: green; display: block; margin-top: 5px;">
+                    <small class="stock-info" style="color: green; display: block; margin-top: 5px; font-size: 16px;">
                         Stock disponible: <?php echo $stock_disponible; ?>
                     </small>
                 <?php endif; ?>
@@ -174,9 +242,7 @@ if (!$resultado) {
     <script src="../controlador/carrito.js"></script>
     
     <footer>
-        <p style="text-align: center; color: white; padding: 20px;">
-            &copy; 2024 Estación del Arte - Todos los derechos reservados
-        </p>
+        <p>&copy; 2025 Estación del Arte - Todos los derechos reservados</p>
     </footer>
 </body>
 </html>

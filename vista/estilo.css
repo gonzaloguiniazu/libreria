@@ -86,14 +86,16 @@ header {
     /* width: 60%; */
     width: 100%;
     transition: .3s;
+    
 }
 .contenedor .contenedor-items .item{
-    max-width: 200px;
+    
     margin: auto;
     border: 1px solid #666;
     border-radius: 10px;
     padding: 20px;
     transition: .3s;
+    background-color: hsla(0, 0%, 100%, 0.822);
 }
 .contenedor .contenedor-items .item .img-item{
     width: 100%;
@@ -106,6 +108,7 @@ header {
     display: block;
     font-weight: bold;
     text-align: center;
+    margin-bottom: 4px;
     text-transform: uppercase;
 }
 .contenedor .contenedor-items .item .precio-item{
