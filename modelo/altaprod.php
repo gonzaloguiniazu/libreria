@@ -1,8 +1,9 @@
 <?php
+require_once('verificar_admin.php');
+
 include('conexion.php');
 $conn = conectarDB();
 
-// Verificar si se recibe un ID para editar
 $id_producto = isset($_GET['id']) ? intval($_GET['id']) : 0;
 $descripcion = $precio = $stock = $stock_minimo = $id_marca = $imagen = "";
 
@@ -29,14 +30,13 @@ if ($id_producto > 0) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="icon" href="../vista/imagenes/favicon-32x32.png" sizes="32x32" type="image/png">
     <style>
-        /* Mantener estilo coherente con crud.php */
         header.container-header {
             background-color: rgba(33,37,41,0.95);
             color: white;
             margin-bottom: 20px;
         }
         header .container-fluid {
-            position: relative; /* necesario para centrar el título con positioning */
+            position: relative;
         }
         header .titulo-centrado {
             position: absolute;
@@ -47,22 +47,28 @@ if ($id_producto > 0) {
             font-weight: 700;
             line-height: 1;
         }
-        /* Ajustes del contenedor del formulario */
         .card-form {
             max-width: 700px;
             margin: 0 auto;
+        }
+        .admin-info {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.8);
         }
     </style>
 </head>
 <body style="background-image: url('../vista/imagenes/fondo_crud.png'); background-size: cover; background-position: center;">
 
-    <!-- NAVBAR + TITULO CENTRADO -->
     <header class="container-header">
         <div class="container-fluid py-3 d-flex justify-content-between align-items-center">
             <a class="navbar-brand text-white ms-3" href="crud.php">Volver al listado de productos</a>
             <h2 class="titulo-centrado"><?= $id_producto > 0 ? "Editar Producto" : "Registrar Producto" ?></h2>
-            <!-- espacio derecho para mantener la simetría -->
-            <div style="width: 120px;"></div>
+            <div class="admin-info me-3">
+                <?php 
+                    $usuario = obtenerUsuarioActual();
+                    echo htmlspecialchars($usuario['nombre_completo']); 
+                ?>
+            </div>
         </div>
     </header>
 
@@ -71,31 +77,26 @@ if ($id_producto > 0) {
             <form action="altaprod_guardar.php" method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="id_producto" value="<?= $id_producto ?>">
 
-                <!-- DESCRIPCIÓN -->
                 <div class="mb-3">
                     <label for="descripcion" class="form-label fw-bold">Descripción del producto</label>
                     <input type="text" class="form-control" id="descripcion" name="descripcion" required value="<?= htmlspecialchars($descripcion) ?>">
                 </div>
 
-                <!-- NUEVO CAMPO: IMAGEN (texto) + explorador -->
                 <div class="mb-3">
                     <label for="imagen" class="form-label fw-bold">Ruta de la imagen</label>
                     <div class="input-group">
                         <input type="text" id="imagen" name="imagen" class="form-control" placeholder="../vista/imagenes/ejemplo.jpg" value="<?= htmlspecialchars($imagen) ?>">
                         <button class="btn btn-secondary" type="button" id="btn-explorar">Explorar</button>
                     </div>
-                    <!-- input file oculto solo para seleccionar archivo local y copiar nombre -->
                     <input type="file" id="file-input" accept="image/*" style="display: none;">
-                    <div class="form-text">Al seleccionar un archivo, se completará el nombre en el campo anterior (no se sube automáticamente).</div>
+                    <div class="form-text">Al seleccionar un archivo, se completará el nombre en el campo anterior.</div>
                 </div>
 
-                <!-- PRECIO -->
                 <div class="mb-3">
                     <label for="precio" class="form-label fw-bold">Precio</label>
                     <input type="number" class="form-control" id="precio" name="precio" required min="0" step="0.01" value="<?= ($precio !== "") ? htmlspecialchars($precio) : "0.00" ?>">
                 </div>
 
-                <!-- MARCA -->
                 <div class="mb-3">
                     <label for="id_marca" class="form-label fw-bold">Marca</label>
                     <select class="form-select" id="id_marca" name="id_marca" required>
@@ -110,19 +111,16 @@ if ($id_producto > 0) {
                     </select>
                 </div>
 
-                <!-- STOCK -->
                 <div class="mb-3">
                     <label for="stock" class="form-label fw-bold">Stock actual</label>
                     <input type="number" class="form-control" id="stock" name="stock" required min="0" value="<?= ($stock !== "") ? htmlspecialchars($stock) : "0" ?>">
                 </div>
 
-                <!-- STOCK MÍNIMO -->
                 <div class="mb-3">
                     <label for="stock_minimo" class="form-label fw-bold">Stock mínimo</label>
                     <input type="number" class="form-control" id="stock_minimo" name="stock_minimo" required min="0" value="<?= ($stock_minimo !== "") ? htmlspecialchars($stock_minimo) : "0" ?>">
                 </div>
 
-                <!-- BOTONES -->
                 <div class="text-center mt-4 d-flex gap-3 justify-content-center">
                     <button type="submit" class="btn btn-success px-4"><?= $id_producto > 0 ? "Guardar Cambios" : "Guardar Producto" ?></button>
                     <a href="crud.php" class="btn btn-secondary px-4">Cancelar</a>
@@ -132,7 +130,6 @@ if ($id_producto > 0) {
     </div>
 
     <script>
-    // Explorar archivo y copiar nombre al input imagen (no sube archivo)
     document.getElementById('btn-explorar').addEventListener('click', function() {
         document.getElementById('file-input').click();
     });
@@ -140,7 +137,6 @@ if ($id_producto > 0) {
     document.getElementById('file-input').addEventListener('change', function(event) {
         const file = event.target.files[0];
         if (!file) return;
-        // Solo ponemos el nombre del archivo (puedes ajustarlo para prefijar la carpeta si lo deseas)
         document.getElementById('imagen').value = 'imagenes/' + file.name;
     });
     </script>

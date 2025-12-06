@@ -1,0 +1,212 @@
+body {
+    background-image: url('imagenes/fondo_crud.png');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: rgba(33, 37, 41, 0.95);
+    color: white;
+    padding: 20px 0;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    text-align: center;
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+.admin-info {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.admin-welcome {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 8px 15px;
+    border-radius: 5px;
+    margin: 0 10px;
+}
+
+.btn-volver {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 0 5px;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+.btn-volver:hover {
+    background-color: #0056b3;
+    color: white;
+}
+
+.btn-volver.btn-danger {
+    background-color: #dc3545;
+}
+
+.btn-volver.btn-danger:hover {
+    background-color: #c82333;
+}
+
+.reportes-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.estadisticas-card, .filtros-card, .fecha-grupo, .no-ventas {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.estadistica-item {
+    text-align: center;
+    padding: 20px;
+}
+
+.estadistica-valor {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #007bff;
+}
+
+.estadistica-label {
+    color: #666;
+    font-size: 1.1rem;
+    margin-top: 10px;
+}
+
+.fecha-titulo {
+    background-color: #dc3545;
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.venta-card {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.venta-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.venta-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.cliente-info {
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.cliente-nombre {
+    font-weight: bold;
+    color: #007bff;
+}
+
+.venta-hora {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.venta-total {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #28a745;
+}
+
+.btn-detalle {
+    background-color: #17a2b8;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-detalle:hover {
+    background-color: #138496;
+}
+
+.detalle-productos {
+    display: none;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #dee2e6;
+}
+
+.detalle-productos.show {
+    display: block;
+}
+
+.producto-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.producto-item:last-child {
+    border-bottom: none;
+}
+
+.no-ventas {
+    text-align: center;
+}
+
+.no-ventas i {
+    font-size: 4rem;
+    color: #6c757d;
+    margin-bottom: 20px;
+}
+
+.estado-badge {
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+.estado-completada {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.estado-pendiente {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.estado-cancelada {
+    background-color: #f8d7da;
+    color: #721c24;
+}
